@@ -236,6 +236,165 @@ h1,h2,h3,.orbitron{font-family:Orbitron,Arial,sans-serif;font-weight:400}
   .nav a{width:36px;height:36px}
   main{margin:0 10px}
 }
+
+/* ===== DARK / LIGHT THEME ===== */
+.theme-toggle{
+  position:fixed;
+  right:20px;
+  top:24px;
+  z-index:120;
+  width:52px;
+  height:52px;
+  border:1px solid #2a2a2a;
+  border-radius:50%;
+  background:#151515;
+  color:#f4f6f8;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  box-shadow:0 12px 35px rgba(0,0,0,.28);
+  transition:transform .25s, background .25s, color .25s, border-color .25s;
+  backdrop-filter:blur(12px);
+}
+.theme-toggle:hover{transform:translateY(-3px) rotate(8deg);background:#242424}
+.theme-toggle .theme-icon{font-size:20px;line-height:1}
+.theme-toggle .theme-label{
+  position:absolute;
+  right:62px;
+  white-space:nowrap;
+  font-size:10px;
+  letter-spacing:.4px;
+  opacity:0;
+  transform:translateX(8px);
+  pointer-events:none;
+  transition:.25s;
+  color:#aaa;
+}
+.theme-toggle:hover .theme-label{opacity:1;transform:translateX(0)}
+
+body.light{
+  --bg:#f4f7fb;
+  --panel:#ffffff;
+  --panel2:#eef2f7;
+  --line:#d8dee8;
+  --text:#101722;
+  --muted:#687386;
+  --soft:#394454;
+  --accent:#172131;
+  --accent2:#61748d;
+  background:
+    radial-gradient(circle at 80% 12%, rgba(121,151,188,.14), transparent 28%),
+    radial-gradient(circle at 25% 85%, rgba(165,184,208,.18), transparent 30%),
+    var(--bg);
+  color:var(--text);
+}
+body.light:before{background:#7892b0;opacity:.10}
+body.light:after{background:#b7c8db;opacity:.16}
+
+body.light .profile{
+  border-color:#dce3ec;
+  background:linear-gradient(145deg,#ffffff,#edf2f7);
+  box-shadow:0 25px 80px rgba(38,53,72,.14);
+}
+body.light .photo{background:#e9eef4;border-color:#d7dee8}
+body.light .signature{color:#182231}
+body.light .available{border-color:#d5dce6;color:#657184}
+body.light .available i{background:#5f738b}
+body.light .location{color:#7a8594}
+body.light .email{color:#526071}
+body.light .socials a{background:#e9eef4;border-color:#d5dce6;color:#526071}
+body.light .socials a:hover{background:#172131;color:#fff}
+body.light .meeting{border-color:#cfd7e2;color:#344153}
+body.light .meeting span:last-child{background:#172131;color:#fff}
+
+body.light .nav{background:rgba(255,255,255,.88);border-color:#d9e0e9;box-shadow:0 15px 40px rgba(38,53,72,.12)}
+body.light .nav a{color:#697587}
+body.light .nav a:hover,body.light .nav a.active{background:#172131;color:#fff}
+
+body.light .eyebrow{color:#6e7989}
+body.light .eyebrow:before{color:#172131}
+body.light .hero .lead{color:#687386}
+body.light .pill{background:#fff;border-color:#dce2ea;color:#465366;box-shadow:0 6px 20px rgba(40,54,72,.05)}
+body.light .stat-card{border-color:#dbe2eb;background:linear-gradient(145deg,#fff,#eef2f7);box-shadow:0 12px 35px rgba(40,54,72,.06)}
+body.light .stat-card small{color:#788394}
+
+body.light .exp{border-bottom-color:#dce2e9}
+body.light .exp .company{color:#788394}
+body.light .exp .date{background:#fff;border-color:#d9e0e8;color:#596678}
+
+body.light .services{background:linear-gradient(180deg,transparent,#eef2f7,transparent)}
+body.light .service{border-bottom-color:#d9e0e8}
+body.light .service:hover{border-bottom-color:#9aa8ba}
+body.light .service-head{color:#8792a2}
+body.light .service:hover .service-head,body.light .service.open .service-head{color:#172131}
+body.light .service:hover .service-head sup,body.light .service.open .service-head sup{color:#526c89}
+body.light .service-content{color:#687386}
+body.light .service-content .service-item:before{color:#526c89}
+
+body.light .about-grid p{color:#687386}
+body.light .quote{background:linear-gradient(145deg,#fff,#edf2f7);border-color:#dbe2eb;box-shadow:0 18px 45px rgba(40,54,72,.06)}
+body.light .quote small{color:#7b8797}
+
+body.light .achievements{background:linear-gradient(180deg,transparent,#edf2f7,transparent)}
+body.light .achievement-card{background:linear-gradient(145deg,#fff,#edf2f7);border-color:#d9e1ea}
+body.light .achievement-card:hover{border-color:#94a3b5}
+body.light .svl-logo-box{background:#f7f9fc;border-color:#d9e1ea}
+body.light .achievement-label{color:#718096}
+body.light .achievement-card p{color:#687386}
+body.light .achievement-badge{border-color:#ccd5e0;background:#f3f6fa;color:#435165}
+
+body.light .brand{background:#fff;border-color:#d8e0e9;box-shadow:0 10px 30px rgba(40,54,72,.06)}
+body.light .brand:hover{border-color:#8292a5;box-shadow:0 12px 35px rgba(40,54,72,.12)}
+body.light .step{background:#fff;border-color:#dbe2ea;box-shadow:0 10px 30px rgba(40,54,72,.05)}
+body.light .step b{color:#718096}
+body.light .step p{color:#778294}
+
+body.light .test-card{background:linear-gradient(145deg,#fff,#edf2f7);border-color:#dbe2eb;box-shadow:0 18px 45px rgba(40,54,72,.06)}
+body.light .test-controls button{border-color:#9ca9b9;color:#344153}
+body.light .test-controls button:hover{background:#172131;color:#fff}
+body.light .test-controls span{color:#7a8595}
+
+body.light .price-card{background:#fff;border-color:#dbe2eb;box-shadow:0 18px 45px rgba(40,54,72,.06)}
+body.light .price-top{background:linear-gradient(145deg,#e4eaf2,#cfd8e4)}
+body.light .price-top span{color:#647083}
+body.light .price-list{color:#5d697a}
+body.light .cta{background:#172131;color:#fff}
+body.light .cta i{background:#fff;color:#172131}
+
+body.light .faq{border-bottom-color:#dce2e9}
+body.light .faq button{color:#253143}
+body.light .faq button span{color:#7d8898}
+body.light .answer{color:#6d7888}
+body.light .contact-box{background:linear-gradient(145deg,#fff,#edf2f7);border-color:#dbe2eb}
+body.light .contact-box p{color:#687386}
+body.light .contact-item{background:#fff;border-color:#d9e1ea}
+body.light .contact-item small{color:#788496}
+body.light .contact-item a{color:#334154}
+body.light .contact-item a:hover{color:#172131}
+body.light .contact-links a{border-color:#cfd8e3;color:#3f4d60}
+body.light .contact-links a:hover{background:#172131;color:#fff}
+
+body.light .edu-card{background:linear-gradient(145deg,#fff,#edf2f7);border-color:#d9e1ea}
+body.light .edu-card:after{background:#6e8ba9}
+body.light .edu-label{color:#718096}
+body.light .edu-card p{color:#687386}
+body.light .progress{background:#dbe2ea}
+body.light .progress span{background:linear-gradient(90deg,#6f89a5,#172131)}
+body.light .edu-meta span{border-color:#d4dce6;background:#f4f7fa;color:#536175}
+body.light .contact-info .contact-item:hover{border-color:#9caabb}
+
+/* Smooth theme transition without changing layout */
+body, .profile, .nav, .stat-card, .quote, .achievement-card, .svl-logo-box,
+.brand, .step, .test-card, .price-card, .price-top, .contact-box, .contact-item,
+.edu-card, .pill, .exp .date, .available, .socials a, .meeting, .theme-toggle{
+  transition:background .35s ease,border-color .35s ease,color .35s ease,box-shadow .35s ease;
+}
+
+@media(max-width:700px){
+  .theme-toggle{top:12px;right:12px;width:46px;height:46px}
+  .theme-toggle .theme-label{display:none}
+}
+
 </style>
 </head>
 <body>
@@ -244,6 +403,12 @@ h1,h2,h3,.orbitron{font-family:Orbitron,Arial,sans-serif;font-weight:400}
   PROFILE IMAGE:
   The profile image is configured in the JavaScript CONFIG section below.
 -->
+
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+  <span class="theme-icon" aria-hidden="true">☾</span>
+  <span class="theme-label">Light Mode</span>
+</button>
 
 <aside class="profile">
   <div class="profile-top">
@@ -568,6 +733,31 @@ const observer = new IntersectionObserver(entries => {
   });
 },{rootMargin:"-40% 0px -50% 0px"});
 sections.forEach(s => observer.observe(s));
+
+/* Dark / Light theme */
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = themeToggle.querySelector(".theme-icon");
+const themeLabel = themeToggle.querySelector(".theme-label");
+
+function applyTheme(theme){
+  const isLight = theme === "light";
+  document.body.classList.toggle("light", isLight);
+  themeIcon.textContent = isLight ? "☀" : "☾";
+  themeLabel.textContent = isLight ? "Dark Mode" : "Light Mode";
+  themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+  themeToggle.title = isLight ? "Switch to dark mode" : "Switch to light mode";
+}
+
+const savedTheme = localStorage.getItem("saad-theme");
+const systemLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+applyTheme(savedTheme || (systemLight ? "light" : "dark"));
+
+themeToggle.addEventListener("click", () => {
+  const nextTheme = document.body.classList.contains("light") ? "dark" : "light";
+  localStorage.setItem("saad-theme", nextTheme);
+  applyTheme(nextTheme);
+});
+
 </script>
 </body>
 </html>
