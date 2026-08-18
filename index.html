@@ -137,6 +137,27 @@ h1,h2,h3,.orbitron{font-family:Orbitron,Arial,sans-serif;font-weight:400}
 .service-content .service-item:before{content:"•";position:absolute;left:0;color:#dce7f5}
 @keyframes serviceReveal{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 
+/* Skills */
+.skills{background:linear-gradient(180deg,transparent,#0b0b0b,transparent)}
+.skills-grid{max-width:900px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:55px}
+.skill-card{position:relative;min-height:145px;padding:24px;border:1px solid #252a31;border-radius:20px;background:linear-gradient(145deg,#151820,#0c0e12);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:.3s}
+.skill-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(158,194,231,.10),transparent 42%);pointer-events:none}
+.skill-card:hover{transform:translateY(-6px);border-color:#667384;box-shadow:0 14px 35px rgba(0,0,0,.25)}
+.skill-number{font:400 10px Orbitron;color:#687384;letter-spacing:1px}
+.skill-card h3{position:relative;font-size:20px;line-height:1.25;margin:0;color:#e8edf3}
+.skill-card p{position:relative;margin:0;color:#737d8b;font-size:10px;letter-spacing:.5px;text-transform:uppercase}
+@media(max-width:1100px){
+  .skills-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:38px}
+  .skill-card{min-height:125px;padding:20px;border-radius:17px}
+  .skill-card h3{font-size:17px}
+}
+@media(max-width:480px){
+  .skills-grid{grid-template-columns:1fr 1fr;gap:9px}
+  .skill-card{min-height:115px;padding:16px}
+  .skill-card h3{font-size:15px}
+  .skill-card p{font-size:8px}
+}
+
 /* About */
 .about-grid{max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
 .about-grid h2{font-size:clamp(42px,5vw,68px);line-height:1.05}
@@ -1210,6 +1231,7 @@ body.light .nav a.active{
   <a href="#home" class="active">⌂</a>
   <a href="#experience">▣</a>
   <a href="#services">☷</a>
+  <a href="#skills">✦</a>
   <a href="#about">♙</a>
   <a href="#education">▥</a>
   <a href="#achievements">★</a>
@@ -1281,6 +1303,21 @@ body.light .nav a.active{
       <div class="service"><div class="service-head">AI Tech <sup>[06]</sup></div><div class="service-content">
         <span class="service-item">AI Prompt Engineering</span><span class="service-item">Machine Learning & Deep Learning Concepts</span><span class="service-item">AI-Powered Workflow Automation</span><span class="service-item">Data Processing & Practical AI Integrations</span>
       </div></div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills">
+    <div class="eyebrow">My Skills</div>
+    <h2 class="title">Tools, technologies and skills I use to build digital solutions.</h2>
+    <div class="skills-grid">
+      <article class="skill-card"><span class="skill-number">01</span><h3>Lua Developer</h3><p>FiveM & Game Development</p></article>
+      <article class="skill-card"><span class="skill-number">02</span><h3>Web Developer</h3><p>Modern Web Development</p></article>
+      <article class="skill-card"><span class="skill-number">03</span><h3>Canva Editor</h3><p>Design & Visual Content</p></article>
+      <article class="skill-card"><span class="skill-number">04</span><h3>AI Prompt Engineering</h3><p>AI & Workflow Optimization</p></article>
+      <article class="skill-card"><span class="skill-number">05</span><h3>SQL Management</h3><p>Database Management</p></article>
+      <article class="skill-card"><span class="skill-number">06</span><h3>C++</h3><p>Programming</p></article>
+      <article class="skill-card"><span class="skill-number">07</span><h3>OOP</h3><p>Object-Oriented Programming</p></article>
+      <article class="skill-card"><span class="skill-number">08</span><h3>Social Media Management</h3><p>Content & Digital Management</p></article>
     </div>
   </section>
 
@@ -1501,7 +1538,7 @@ function renderTestimonial(){
 }
 
 /* Smooth reveal for sections and content */
-const revealTargets=document.querySelectorAll("section > .eyebrow,section > .title,.exp,.service,.about-grid,.quote,.achievement-card,.svl-logo-box,.brand,.step,.test-card,.price-card,.faq,.contact-box,.contact-item,.contact-links a,.edu-card");
+const revealTargets=document.querySelectorAll("section > .eyebrow,section > .title,.exp,.service,.about-grid,.quote,.achievement-card,.svl-logo-box,.brand,.step,.test-card,.price-card,.faq,.contact-box,.contact-item,.contact-links a,.edu-card,.skill-card");
 revealTargets.forEach((el,i)=>{el.classList.add("reveal-item");el.style.transitionDelay=`${Math.min((i%5)*55,220)}ms`;});
 const revealObserver=new IntersectionObserver(entries=>{
  entries.forEach(entry=>{
