@@ -1190,6 +1190,29 @@ body.light .nav a.active{
   .nav a{height:34px!important;border-radius:10px}
 }
 
+
+/* ===== MY SKILLS LIGHT MODE BACKGROUND FIX ===== */
+body.light .skills{
+  background:linear-gradient(180deg,transparent,#f4f7fb,transparent);
+}
+body.light .skill-card{
+  background:linear-gradient(145deg,#ffffff,#eef2f7);
+  border-color:#d9e1ea;
+  box-shadow:0 10px 30px rgba(40,54,72,.06);
+}
+body.light .skill-card:before{
+  background:radial-gradient(circle at 85% 15%,rgba(77,163,255,.07),transparent 42%);
+}
+body.light .skill-card h3{color:#172131}
+body.light .skill-card p{color:#687386}
+body.light .skill-number{color:#718096}
+body.light .skill-card:hover{
+  border-color:rgba(48,126,204,.38);
+  box-shadow:0 16px 35px rgba(40,54,72,.10),0 0 20px rgba(77,163,255,.07);
+}
+body.light .skill-card::after{
+  background:linear-gradient(90deg,transparent,rgba(77,163,255,.08),transparent);
+}
 </style>
 
 <script type="application/ld+json">
