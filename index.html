@@ -158,6 +158,42 @@ h1,h2,h3,.orbitron{font-family:Orbitron,Arial,sans-serif;font-weight:400}
   .skill-card p{font-size:8px}
 }
 
+/* ===== MY SKILLS ANIMATION ===== */
+.skill-card{
+  opacity:0;
+  transform:translateY(24px) scale(.97);
+  transition:opacity .65s var(--ease-soft),transform .65s var(--ease-smooth),border-color .35s ease,box-shadow .45s ease,background .35s ease;
+  will-change:transform,opacity;
+}
+.skill-card.is-visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.skill-card:hover{
+  transform:translateY(-8px) scale(1.015);
+  border-color:rgba(77,163,255,.42);
+  box-shadow:0 18px 42px rgba(0,0,0,.3),0 0 26px rgba(77,163,255,.10);
+}
+.skill-card::after{
+  content:"";
+  position:absolute;
+  top:-120%;
+  left:-35%;
+  width:45%;
+  height:340%;
+  background:linear-gradient(90deg,transparent,rgba(77,163,255,.12),transparent);
+  transform:rotate(22deg);
+  transition:transform .75s ease;
+  pointer-events:none;
+}
+.skill-card:hover::after{transform:translateX(300%) rotate(22deg)}
+.skill-card h3{transition:transform .4s var(--ease-smooth),text-shadow .4s ease}
+.skill-card:hover h3{transform:translateX(4px);text-shadow:0 0 18px rgba(77,163,255,.18)}
+@media(max-width:700px){
+  .skill-card{transition:opacity .55s ease,transform .55s var(--ease-smooth),border-color .3s ease,box-shadow .3s ease}
+  .skill-card:hover{transform:translateY(-4px) scale(1.01)}
+}
+
 /* About */
 .about-grid{max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
 .about-grid h2{font-size:clamp(42px,5vw,68px);line-height:1.05}
@@ -529,13 +565,14 @@ body:after{
 .nav a:nth-child(1)::after{content:"Home"}
 .nav a:nth-child(2)::after{content:"Experience"}
 .nav a:nth-child(3)::after{content:"Services"}
-.nav a:nth-child(4)::after{content:"About"}
-.nav a:nth-child(5)::after{content:"Education"}
-.nav a:nth-child(6)::after{content:"Achievements"}
-.nav a:nth-child(7)::after{content:"Ventures"}
-.nav a:nth-child(8)::after{content:"Testimonials"}
-.nav a:nth-child(9)::after{content:"Pricing"}
-.nav a:nth-child(10)::after{content:"Contact"}
+.nav a:nth-child(4)::after{content:"My Skills"}
+.nav a:nth-child(5)::after{content:"About"}
+.nav a:nth-child(6)::after{content:"Education"}
+.nav a:nth-child(7)::after{content:"Achievements"}
+.nav a:nth-child(8)::after{content:"Ventures"}
+.nav a:nth-child(9)::after{content:"Testimonials"}
+.nav a:nth-child(10)::after{content:"Pricing"}
+.nav a:nth-child(11)::after{content:"Contact"}
 .nav a:hover::after{
   opacity:1;
   transform:translateY(-50%) translateX(0);
@@ -1536,6 +1573,22 @@ function renderTestimonial(){
   document.getElementById("testimonialAuthor").textContent = testimonials[testIndex][1];
   document.getElementById("testCount").textContent = `${testIndex+1} / ${testimonials.length}`;
 }
+
+
+/* Skills card animation */
+const skillCards = document.querySelectorAll(".skill-card");
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      skillCards.forEach((card,i) => {
+        card.style.transitionDelay = `${i * 70}ms`;
+        card.classList.add("is-visible");
+      });
+      skillObserver.disconnect();
+    }
+  });
+},{threshold:.12});
+if(skillCards.length) skillObserver.observe(document.getElementById("skills"));
 
 /* Smooth reveal for sections and content */
 const revealTargets=document.querySelectorAll("section > .eyebrow,section > .title,.exp,.service,.about-grid,.quote,.achievement-card,.svl-logo-box,.brand,.step,.test-card,.price-card,.faq,.contact-box,.contact-item,.contact-links a,.edu-card,.skill-card");
